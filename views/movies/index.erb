@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Movie Homepage</title>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>MOVIES</h1>
+    </header>
+
+    <form action='/movies' method='GET'>
+      <button type='submit'>Back to movies</button>
+    </form>
+
+
+    <form action='/movies' method='GET'>
+      <input type='Text' name='movie_search' size='' placeholder='ex: Hook' >
+      <button type='submit'>Search</button>
+    </form>
+
+    <selection>
+
+      <ul>
+        <% if @movie_search == nil %>
+          <% @movies.each do |movie| %>
+          <li><a href='/movies/<%= movie['id'] %>'><%= movie['title'] %></a></li>
+          <% end %>
+        <% else %>
+          <% @search_movies.each do |movie| %>
+          <% if movie['title'].downcase.include?(@movie_search.downcase) %>
+          <li><a href='/movies/<%= movie['id'] %>'><%= movie['title'] %></a></li>
+              <% end %>
+            <% end %>
+        <% end %>
+      <ul>
+    <selection>
+      <span>
+    <div>
+      <% if params["page"].to_i > 1 %>
+      <a href="/movies?page=<%= @page_num - 1 %>"> Previous Page </a>
+      <% end %>
+
+    <% if params["page"].to_i == 0 %>
+    <a href="/movies?page=<%= @page_num + 2 %>"> Next Page </a>
+    <% else %>
+    <a href="/movies?page=<%= @page_num + 1 %>"> Next Page </a>
+    <% end %>
+
+
+    </div>
+  </span>
+
+  </div>
+</body>
+</html>

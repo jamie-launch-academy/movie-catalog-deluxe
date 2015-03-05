@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Actors Homepage</title>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>ACTORS!</h1>
+    </header>
+
+      <h1> <%= @actor_info[0]['name'] %></h1>
+      <% @actor_info.each do |actor| %>
+      <li><a href='/movies/<%= actor['id'] %>'><%= "#{actor['title']}</a> - #{actor['character']}" %></li>
+      <% end %>
+  </div>
+</body>
+</html>

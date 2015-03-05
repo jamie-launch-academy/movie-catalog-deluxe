@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Movie Homepage</title>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>MOVIE </h1>
+
+
+      </header>
+
+
+      <h1><%= "#{@movie_info[0]['title']}" %></h1>
+
+      <h2><%= "Year Released: #{@movie_info[0]['year']}" %> </h2>
+      <h2><%= "Rating: #{@movie_info[0]['rating']}" %> </h2>
+      <h2><%= "Studio Name: #{@movie_info[0]['name']}" %> </h2>
+      <h2><%= "Genre: #{@movie_info[0]['genre_name']}" %> </h2>
+
+      <% @movie_info.each do |movie| %>
+
+      <li><a href='/actors/ <%= movie['actor_id'] %>'> <%= "#{movie['actor_name']}" %> </a>
+        <% end %>
+
+      <section>
+
+      </section>
+    </div>
+  </body>
+  </html>

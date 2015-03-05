@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Actors Homepage</title>
+</head>
+<body>
+  <div>
+    <header>
+      <h1>ACTORS!</h1>
+    </header>
+
+    <form action='/acotrs' method='GET'>
+      <button type='submit'>Back to actors</button>
+    </form>
+
+    <form action='/actors' method='GET'>
+      <input type='Text' name='actor_search' size='' placeholder='ex: Robin William' >
+      <button type='submit'>Search</button>
+    </form>
+
+
+    <body>
+        <ul>
+          <% @actors.each do |actor| %>
+
+          <li>
+            <a href='/actors/<%= actor['id'] %>'><%= actor['name'] %></a>
+          </li>
+          <% end %>
+        </ul>
+    </body>
+
+  </div>
+</body>
+</html>
